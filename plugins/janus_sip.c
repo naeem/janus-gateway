@@ -2260,13 +2260,12 @@ static void *janus_sip_handler(void *data) {
 					goto error;
 				}
 			}
-            /* session is null sometimes */
-			if (session == NULL) {
-				stack = NULL;
-                s_nh_r = NULL;
-			} else if(session->stack->s_nh_r != NULL) {
-                nua_handle_destroy(session->stack->s_nh_r);
-                session->stack->s_nh_r = NULL;
+            		/* session is null sometimes */
+			if (session != NULL) {
+				if(session->stack->s_nh_r != NULL) {
+                			nua_handle_destroy(session->stack->s_nh_r);
+                			session->stack->s_nh_r = NULL;
+				}
 			}
 
 			if(send_register) {
