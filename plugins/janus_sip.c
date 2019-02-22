@@ -2261,7 +2261,7 @@ static void *janus_sip_handler(void *data) {
 				}
 			}
             /* session is null sometimes */
-			if (session == null) {
+			if (session == NULL) {
 				stack = NULL;
                 s_nh_r = NULL;
 			} else if(session->stack->s_nh_r != NULL) {
